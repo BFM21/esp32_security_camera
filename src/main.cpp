@@ -107,10 +107,13 @@ static void flashLED(int flashtime)
 void wifi_setup()
 {
   Serial.println("Starting wifi");
+  // Set IP address
   ip.fromString(IP_ADDRESS);
   gateway.fromString(GATEWAY);
   subnet.fromString(SUBNET);
   WiFi.config(ip, gateway, subnet);
+
+  // Begin connection
   WiFi.begin(SSID, PASSWORD);
   WiFi.setSleep(false);
   while (WiFi.status() != WL_CONNECTED)
