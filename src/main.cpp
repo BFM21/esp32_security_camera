@@ -22,7 +22,7 @@ void setup()
 {
   Serial.begin(115200);
   pinMode(LED_PIN, OUTPUT);
-
+  pinMode(GPIO_13, INPUT);
   wifi_setup();
   camera_init();
   mic_i2s_init();

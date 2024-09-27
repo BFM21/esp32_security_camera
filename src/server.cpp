@@ -203,7 +203,7 @@ static esp_err_t capture_handler(httpd_req_t *req)
 static esp_err_t motion_handler(httpd_req_t *req)
 {
     esp_err_t res = ESP_OK;
-    uint8_t motion = digitalRead(GPIO_2);
+    uint8_t motion = digitalRead(GPIO_13);
     std::string buf = "null";
     if (motion)
     {
