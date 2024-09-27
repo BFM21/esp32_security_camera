@@ -69,6 +69,8 @@ esp_err_t camera_init()
   return esp_camera_init(&camera_config);
 }
 
+// 2. Microphone
+
 esp_err_t mic_i2s_init()
 {
   esp_err_t res = ESP_OK;
@@ -96,7 +98,7 @@ esp_err_t mic_i2s_init()
   return res;
 }
 
-// 2. WiFi
+// 3. WiFi
 static void flashLED(int flashtime)
 {
   digitalWrite(LED_PIN, LED_ON);
