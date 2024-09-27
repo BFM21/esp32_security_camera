@@ -1,0 +1,7 @@
+#define SSID "ALHN-A3FD"
+#define PASSWORD "4hu4Ab45rR"
+#define IP_ADDRESS "192.168.1.73"
+#define GATEWAY "192.168.1.1"
+#define SUBNET "255.255.255.0"
+#define STREAM_PORT 81
+#define AUDIO_PORT 82
