@@ -26,8 +26,6 @@ void setup()
   wifi_setup();
   camera_init();
   mic_i2s_init();
-  sensor_t *sensors = esp_camera_sensor_get();
-  sensors->set_vflip(sensors, 1);
   start_camera_server(80, STREAM_PORT, AUDIO_PORT);
 }
 
