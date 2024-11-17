@@ -1018,7 +1018,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }
 
   const startStream = () => {
-    view.src = `${streamUrl}/stream`
+    view.src = `${streamUrl}`
     show(viewContainer)
     streamButton.innerHTML = 'Stop Stream'
   }
