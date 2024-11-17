@@ -3,7 +3,7 @@
 #include <esp_camera.h>
 #include <driver/i2s.h>
 
-#include "config.h"
+#include "wifi_config.h"
 #include "esp32_cam_pins.h"
 #include "audio_config.h"
 
@@ -106,6 +106,8 @@ static void flashLED(int flashtime)
 
 void wifi_setup()
 {
+  uint8_t loadingAnimationStep = 0;
+  char loadingAnimation[8] = {'|','/','-','\\','|','/','-','\\'};
   Serial.println("Starting wifi");
   // Set IP address
   ip.fromString(IP_ADDRESS);
@@ -118,28 +120,11 @@ void wifi_setup()
   WiFi.setSleep(false);
   while (WiFi.status() != WL_CONNECTED)
   {
-    Serial.print("|\r");
-    flashLED(300);
-    delay(200);
-    Serial.print("/\r");
-    flashLED(300);
-    delay(200);
-    Serial.print("-\r");
-    flashLED(300);
-    delay(200);
-    Serial.print("\\\r");
-    flashLED(300);
-    delay(200);
-    Serial.print("|\r");
-    flashLED(300);
-    delay(200);
-    Serial.print("/\r");
-    flashLED(300);
-    delay(200);
-    Serial.print("-\r");
-    flashLED(300);
-    delay(200);
-    Serial.print("\\\r");
+    if(loadingAnimationStep > 7){
+      loadingAnimationStep = 0;
+    }
+    Serial.printf("%c\r", loadingAnimation[loadingAnimationStep]);
+    loadingAnimationStep++;
     flashLED(300);
     delay(200);
   }
