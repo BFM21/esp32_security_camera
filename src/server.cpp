@@ -63,7 +63,7 @@ void initialize_wav_header(WAVHeader &header, uint32_t sampleRate, uint16_t bits
     strncpy(header.subchunk1Id, "fmt ", 4);
     strncpy(header.subchunk2Id, "data", 4);
 
-    header.chunkSize = ((sampleRate * bitsPerSample * numChannels) / 8 * elapsedSeconds) + 44 - 8; // Placeholder for Chunk Size (to be updated later)
+    header.chunkSize = ((sampleRate * bitsPerSample * numChannels) / 8 * elapsedSeconds) + 44 - 8; 
     header.subchunk1Size = 16;                                                                     // PCM format size (constant for uncompressed audio)
     header.audioFormat = 1;                                                                        // PCM audio format (constant for uncompressed audio)
     header.numChannels = numChannels;
@@ -71,7 +71,7 @@ void initialize_wav_header(WAVHeader &header, uint32_t sampleRate, uint16_t bits
     header.bitsPerSample = bitsPerSample;
     header.byteRate = (sampleRate * bitsPerSample * numChannels) / 8;
     header.blockAlign = (bitsPerSample * numChannels) / 8;
-    header.subchunk2Size = ((sampleRate * bitsPerSample * numChannels) / 8 * UINT32_MAX); // Placeholder for data size (to be updated later)
+    header.subchunk2Size = ((sampleRate * bitsPerSample * numChannels) / 8 * UINT32_MAX);
 }
 
 static esp_err_t parse_get(httpd_req_t *req, char **obuf)
